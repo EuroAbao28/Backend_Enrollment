@@ -1,4 +1,5 @@
 const express = require("express");
+const protect = require("../middlewares/authMiddleware");
 const {
   getAllAdmin,
   registerAdmin,
@@ -6,7 +7,7 @@ const {
 } = require("../controllers/adminsController");
 const router = express.Router();
 
-router.get("/", getAllAdmin);
+router.get("/", protect, getAllAdmin);
 router.post("/register", registerAdmin);
 router.post("/login", loginAdmin);
 

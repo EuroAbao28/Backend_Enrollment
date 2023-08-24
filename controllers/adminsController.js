@@ -2,6 +2,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const adminModel = require("../models/adminModel");
 
+// GAMITIN MO NA YUNG MIDDLEWARE, YUNG SA req.admin
+// MAY LAMAN YUN NG DATA MISMO NG NAGLOGIN NA ADMIN
+
 const getAllAdmin = async (req, res) => {
   const response = await adminModel.find({});
   res.status(200).json(response);
