@@ -6,10 +6,11 @@ const {
   deleteStudent,
   updateStudent,
 } = require("../controllers/studentsController");
+const protect = require("../middlewares/authMiddleware");
 
 // router.get("/", getStudents);
 
 // if same route, ganto pwede mas maikli
-router.route("/").get(getStudents).post(createStudent);
-router.route("/:id").put(updateStudent).delete(deleteStudent);
+router.route("/").get(protect, getStudents).post(createStudent);
+router.route("/:id").put(protect, updateStudent).delete(protect, deleteStudent);
 module.exports = router;
